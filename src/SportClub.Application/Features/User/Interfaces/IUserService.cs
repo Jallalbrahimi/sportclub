@@ -2,7 +2,7 @@
 
 namespace SportClub.Application.Features.User.Interfaces
 {
-    public interface IUserRepository
+    public interface IUserService
     {
         Task<Guid> CreateUserAsync(ApplicationUser user, CancellationToken cancellationToken);
         Task<IList<ApplicationUser>> GetUsersAsync(CancellationToken cancellationToken);

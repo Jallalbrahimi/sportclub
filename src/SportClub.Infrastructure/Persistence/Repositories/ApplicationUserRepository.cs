@@ -4,7 +4,7 @@ using SportClub.Domain.Entities;
 
 namespace SportClub.Infrastructure.Persistence.Repositories
 {
-    public class ApplicationUserRepository : IUserRepository
+    public class ApplicationUserRepository : IUserService
     {
         private readonly ApplicationDbContext _dbContext;
 

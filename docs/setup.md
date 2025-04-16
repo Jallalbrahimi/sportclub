@@ -29,11 +29,16 @@ dotnet add SportClub.Infrastructure package Microsoft.EntityFrameworkCore
 dotnet add SportClub.Infrastructure package Microsoft.EntityFrameworkCore.Sqlite
 dotnet add SportClub.Infrastructure package Microsoft.EntityFrameworkCore.Design
 dotnet add SportClub.Api package Microsoft.EntityFrameworkCore.Design
+dotnet add SportClub.Api package Microsoft.AspNetCore.Authentication.JwtBearer
+dotnet add SportClub.Api package System.IdentityModel.Tokens.Jwt
 
 # Init EF Core
 dotnet tool update --global dotnet-ef
 dotnet ef migrations add InitialCreate --verbose --project SportClub.Infrastructure --context SportClub.Infrastructure.Persistence.ApplicationDbContext --startup-project SportClub.Api
 dotnet ef database update --verbose --project SportClub.Infrastructure --context SportClub.Infrastructure.Persistence.ApplicationDbContext --startup-project SportClub.Api
+
+dotnet ef migrations add InitialCreate --verbose --project SportClub.Infrastructure --context SportClub.Infrastructure.Persistence.ApplicationDbContext --startup-project SportClub.Api
+
 
 # Configure git repo
 git init
@@ -43,3 +48,9 @@ git remote add origin https://github.com/jallalbrahimi/SportClub.git
 git branch -M main
 git pull origin main
 git pull --rebase origin main
+
+
+
+ npm create vite@latest sportclub.client --template lit
+
+

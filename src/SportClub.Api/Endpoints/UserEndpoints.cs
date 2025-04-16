@@ -1,0 +1,29 @@
+﻿using MediatR;
+using Microsoft.AspNetCore.Mvc;
+using SportClub.Application.Features.User.Commands;
+using SportClub.Application.Features.User.Queries;
+
+namespace SportClub.Api.Endpoints
+{
+    public static class UserEndpoints
+    {
+
+        public static void MapUserEndpoints(this IEndpointRouteBuilder app)
+        {
+            // POST: /api/users
+            app.MapPost("/api/users", async (CreateUserCommand command, IMediator mediator) =>
+            {
+                var userId = await mediator.Send(command);
+                return Results.Created($"/api/orders/{userId}", userId);
+            });
+
+            // GET: /api/users
+            app.MapGet("/api/users", async ([FromServices] IMediator mediator) =>
+            {
+                var users = await mediator.Send(new GetUsersQuery());
+                return Results.Ok(users);
+            });
+        }
+
+    }
+}

@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportClub.Domain", "SportCl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportClub.Infrastructure", "SportClub.Infrastructure\SportClub.Infrastructure.csproj", "{9F70A223-7D28-49B0-8C44-E0758D788722}"
 EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "sportclub.client", "sportclub.client\sportclub.client.esproj", "{58661314-2455-746D-D23B-48C9C10F06FC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,8 +35,17 @@ Global
 		{9F70A223-7D28-49B0-8C44-E0758D788722}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9F70A223-7D28-49B0-8C44-E0758D788722}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9F70A223-7D28-49B0-8C44-E0758D788722}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58661314-2455-746D-D23B-48C9C10F06FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58661314-2455-746D-D23B-48C9C10F06FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58661314-2455-746D-D23B-48C9C10F06FC}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{58661314-2455-746D-D23B-48C9C10F06FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58661314-2455-746D-D23B-48C9C10F06FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58661314-2455-746D-D23B-48C9C10F06FC}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AD6C3369-7B8B-4472-AB0A-9B50482F5F91}
 	EndGlobalSection
 EndGlobal

@@ -2,7 +2,5 @@
 
 namespace SportClub.Application.Features.User.Commands
 {
-    public record CreateUserCommand(
-        string title,
-        Uri? sourceUrl) : IRequest<Guid>;
+    public record CreateUserCommand() : IRequest<Guid>;
 }

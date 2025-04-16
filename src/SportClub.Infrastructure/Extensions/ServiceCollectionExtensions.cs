@@ -1,35 +1,46 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using SportClub.Application.Common.Logging;
+using SportClub.Application.Features.Identity.Interfaces;
 using SportClub.Application.Features.User.Interfaces;
 using SportClub.Infrastructure.Persistence;
 using SportClub.Infrastructure.Persistence.Repositories;
+using SportClub.Infrastructure.Services;
 
-namespace NewsAggregator.Infrastructure.Extensions
+namespace SportClub.Infrastructure.Extensions
 {
     public static class ServiceCollectionExtensions
     {
-
-        public static IServiceCollection AddMediatR(this IServiceCollection services)
+        public static IServiceCollection AddInfrastructure(this IServiceCollection services)
         {
-            // Add services
+            // MediatR
             services.AddMediatR(cfg => { cfg.RegisterServicesFromAssembly(typeof(SportClub.Application.Ping).Assembly); });
-
 #if DEBUG
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(LoggingBehavior<,>));
 #endif
 
+            services.AddIdentityCore<IdentityUser>(options =>
+            {
+                options.User.RequireUniqueEmail = true;
+                options.SignIn.RequireConfirmedAccount = false;
+            })
+            .AddEntityFrameworkStores<ApplicationDbContext>() // Ensure the correct namespace is included
+            .AddUserManager<UserManager<IdentityUser>>();
+
+            // Services
+            services.AddScoped<IIdentityService, IdentityService>();
             return services;
         }
 
-        public static IServiceCollection Persistence(this IServiceCollection services, string connectionString)
+        public static IServiceCollection AddPersistence(this IServiceCollection services, string connectionString)
         {
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlite(connectionString));
 
             // Register the repository
-            services.AddScoped<IUserRepository, ApplicationUserRepository>();
+            services.AddScoped<IUserService, ApplicationUserRepository>();
 
             return services;
         }

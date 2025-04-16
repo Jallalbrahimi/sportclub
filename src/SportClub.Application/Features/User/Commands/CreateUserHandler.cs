@@ -6,9 +6,9 @@ namespace SportClub.Application.Features.User.Commands
 {
     public class CreateUserHandler : IRequestHandler<CreateUserCommand, Guid>
     {
-        private readonly IUserRepository _userRepository;
+        private readonly IUserService _userRepository;
 
-        public CreateUserHandler(IUserRepository userRepository)
+        public CreateUserHandler(IUserService userRepository)
         {
             _userRepository = userRepository;
         }

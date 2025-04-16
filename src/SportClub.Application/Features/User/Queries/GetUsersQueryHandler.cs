@@ -6,9 +6,9 @@ namespace SportClub.Application.Features.User.Queries
 {
     public class GetUsersQueryHandler : IRequestHandler<GetUsersQuery, List<UserDto>>
     {
-        private readonly IUserRepository _userRepository;
+        private readonly IUserService _userRepository;
 
-        public GetUsersQueryHandler(IUserRepository userRepository)
+        public GetUsersQueryHandler(IUserService userRepository)
         {
             _userRepository = userRepository;
         }

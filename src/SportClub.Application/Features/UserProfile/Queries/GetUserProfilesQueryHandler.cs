@@ -4,23 +4,23 @@ using SportClub.Application.Features.User.Interfaces;
 
 namespace SportClub.Application.Features.User.Queries
 {
-    public class GetUsersQueryHandler : IRequestHandler<GetUsersQuery, List<UserDto>>
+    public class GetUserProfilesQueryHandler : IRequestHandler<GetUserProfilesQuery, List<UserProfileDto>>
     {
-        private readonly IUserService _userRepository;
+        private readonly IUserProfileRepository _userRepository;
 
-        public GetUsersQueryHandler(IUserService userRepository)
+        public GetUserProfilesQueryHandler(IUserProfileRepository userRepository)
         {
             _userRepository = userRepository;
         }
 
-        public async Task<List<UserDto>> Handle(GetUsersQuery request, CancellationToken cancellationToken)
+        public async Task<List<UserProfileDto>> Handle(GetUserProfilesQuery request, CancellationToken cancellationToken)
         {
             // Await the repository call to get the list of Users
             var users = await _userRepository.GetUsersAsync(cancellationToken);
 
             // Map the Users to DTOs
             var userDtos = users
-                .Select(p => new UserDto(p.Id))
+                .Select(p => new UserProfileDto(p.Id))
                 .ToList();
 
             return userDtos;

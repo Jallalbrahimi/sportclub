@@ -11,7 +11,7 @@ namespace SportClub.Api.Endpoints
         public static void MapUserEndpoints(this IEndpointRouteBuilder app)
         {
             // POST: /api/users
-            app.MapPost("/api/users", async (CreateUserCommand command, IMediator mediator) =>
+            app.MapPost("/api/users", async (CreateUserProfileCommand command, IMediator mediator) =>
             {
                 var userId = await mediator.Send(command);
                 return Results.Created($"/api/orders/{userId}", userId);
@@ -20,7 +20,7 @@ namespace SportClub.Api.Endpoints
             // GET: /api/users
             app.MapGet("/api/users", async ([FromServices] IMediator mediator) =>
             {
-                var users = await mediator.Send(new GetUsersQuery());
+                var users = await mediator.Send(new GetUserProfilesQuery());
                 return Results.Ok(users);
             });
         }

@@ -4,5 +4,10 @@
     {
         public Guid Id { get; set; }
         public string Email { get; set; } = default!;
+
+        public Guid UserProfileId { get; set; }
+
+        // Optional: Navigation property
+        public required UserProfile UserProfile { get; set; }
     }
 }

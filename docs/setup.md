@@ -28,6 +28,8 @@ dotnet add SportClub.Api package Swashbuckle.AspNetCore
 dotnet add SportClub.Infrastructure package Microsoft.EntityFrameworkCore
 dotnet add SportClub.Infrastructure package Microsoft.EntityFrameworkCore.Sqlite
 dotnet add SportClub.Infrastructure package Microsoft.EntityFrameworkCore.Design
+dotnet add SportClub.Infrastructure package Microsoft.Extensions.Configuration.FileExtensions
+dotnet add SportClub.Infrastructure package Microsoft.Extensions.Configuration.Json
 dotnet add SportClub.Api package Microsoft.EntityFrameworkCore.Design
 dotnet add SportClub.Api package Microsoft.AspNetCore.Authentication.JwtBearer
 dotnet add SportClub.Api package System.IdentityModel.Tokens.Jwt

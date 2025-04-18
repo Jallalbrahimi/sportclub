@@ -1,14 +1,12 @@
 ﻿using MediatR;
-using Microsoft.AspNetCore.Identity;
-using SportClub.Application.Features.Identity.Commands;
-using SportClub.Application.Features.User.Commands;
+using SportClub.Application.Features.Authentication.Commands;
 
 namespace SportClub.Api.Endpoints
 {
     record RegisterRequest(string email, string password);
     record LoginRequest(string email, string password);
 
-    public static class IdentityEndpoints
+    public static class AuthenticationEndpoints
     {
 
         public static void MapIdentityEndpoints(this IEndpointRouteBuilder app)
@@ -17,7 +15,7 @@ namespace SportClub.Api.Endpoints
             {
                 var result = await mediator.Send(command);
 
-                return result ? Results.Ok() : Results.Unauthorized(); 
+                return (result != null) ? Results.Ok(result) : Results.Unauthorized();
             });
 
             app.MapPost("/api/register", async (RegisterCommand command, IMediator mediator) =>

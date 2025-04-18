@@ -3,10 +3,10 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using SportClub.Application.Common.Logging;
-using SportClub.Application.Features.Identity.Interfaces;
+using SportClub.Application.Features.Authentication.Interfaces;
 using SportClub.Application.Features.User.Interfaces;
+using SportClub.Infrastructure.Identity;
 using SportClub.Infrastructure.Persistence;
-using SportClub.Infrastructure.Persistence.Repositories;
 using SportClub.Infrastructure.Services;
 
 namespace SportClub.Infrastructure.Extensions
@@ -21,16 +21,16 @@ namespace SportClub.Infrastructure.Extensions
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(LoggingBehavior<,>));
 #endif
 
-            services.AddIdentityCore<IdentityUser>(options =>
+            services.AddIdentityCore<AuthenticationUser>(options =>
             {
                 options.User.RequireUniqueEmail = true;
                 options.SignIn.RequireConfirmedAccount = false;
             })
             .AddEntityFrameworkStores<ApplicationDbContext>() // Ensure the correct namespace is included
-            .AddUserManager<UserManager<IdentityUser>>();
+            .AddUserManager<UserManager<AuthenticationUser>>();
 
             // Services
-            services.AddScoped<IIdentityService, IdentityService>();
+            services.AddScoped<IAuthenticationService, AuthenticationService>();
             return services;
         }
 
@@ -40,7 +40,7 @@ namespace SportClub.Infrastructure.Extensions
                 options.UseSqlite(connectionString));
 
             // Register the repository
-            services.AddScoped<IUserService, ApplicationUserRepository>();
+            services.AddScoped<IUserProfileRepository, UserProfileRepository>();
 
             return services;
         }

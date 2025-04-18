@@ -1,34 +1,36 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Options;
 using SportClub.Api.Endpoints;
-using SportClub.Domain.Entities;
 
 
 //using SportClub.Api.Endpoints;
 using SportClub.Infrastructure.Extensions;
+using SportClub.Infrastructure.Identity;
 using SportClub.Infrastructure.Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddInfrastructure();
 
-builder.Services.AddInfrastructure(); 
-builder.Services.AddPersistence("Data Source=sportclub.db");
+string connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? string.Empty;
+builder.Services.AddPersistence(connectionString);
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddIdentityCore<IdentityUser>().AddUserManager<UserManager<IdentityUser>>();
-
+#if DEBUG
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("myAllowSpecificOrigins",
         builder =>
         {
-            builder.WithOrigins("http://localhost:5173")
+            //TODO: use configuration setting
+            builder
+                .AllowAnyOrigin()
                 .AllowAnyHeader()
                 .AllowAnyMethod();
         });
 });
+#endif
 
 // Build the app
 var app = builder.Build();

@@ -1,4 +1,4 @@
-﻿namespace SportClub.Application.Features.User.Dtos
+﻿namespace SportClub.Application.Features.UserProfile.Dtos
 {
     public record UserProfileDto(Guid Id);
 }

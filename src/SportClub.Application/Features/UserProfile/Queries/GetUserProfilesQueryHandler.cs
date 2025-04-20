@@ -1,8 +1,8 @@
 ﻿using MediatR;
-using SportClub.Application.Features.User.Dtos;
-using SportClub.Application.Features.User.Interfaces;
+using SportClub.Application.Features.UserProfile.Dtos;
+using SportClub.Application.Features.UserProfile.Interfaces;
 
-namespace SportClub.Application.Features.User.Queries
+namespace SportClub.Application.Features.UserProfile.Queries
 {
     public class GetUserProfilesQueryHandler : IRequestHandler<GetUserProfilesQuery, List<UserProfileDto>>
     {

@@ -1,7 +1,7 @@
 ﻿using MediatR;
-using SportClub.Application.Features.User.Dtos;
+using SportClub.Application.Features.UserProfile.Dtos;
 
-namespace SportClub.Application.Features.User.Queries
+namespace SportClub.Application.Features.UserProfile.Queries
 {
     public record GetUserProfilesQuery : IRequest<List<UserProfileDto>>;
 }

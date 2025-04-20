@@ -4,10 +4,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using SportClub.Application.Common.Logging;
 using SportClub.Application.Features.Authentication.Interfaces;
-using SportClub.Application.Features.User.Interfaces;
+using SportClub.Application.Features.UserProfile.Interfaces;
 using SportClub.Infrastructure.Identity;
 using SportClub.Infrastructure.Persistence;
-using SportClub.Infrastructure.Services;
 
 namespace SportClub.Infrastructure.Extensions
 {

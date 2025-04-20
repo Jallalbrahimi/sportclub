@@ -1,8 +1,7 @@
 ﻿using MediatR;
-using SportClub.Application.Features.User.Interfaces;
-using SportClub.Domain.Entities;
+using SportClub.Application.Features.UserProfile.Interfaces;
 
-namespace SportClub.Application.Features.User.Commands
+namespace SportClub.Application.Features.UserProfile.Commands
 {
     public class CreateUserProfileHandler : IRequestHandler<CreateUserProfileCommand, Guid>
     {
@@ -15,7 +14,7 @@ namespace SportClub.Application.Features.User.Commands
 
         public async Task<Guid> Handle(CreateUserProfileCommand request, CancellationToken cancellationToken)
         {
-            var profile = new UserProfile
+            var profile = new Domain.Entities.UserProfile
             {
                 Id = Guid.NewGuid()
             };

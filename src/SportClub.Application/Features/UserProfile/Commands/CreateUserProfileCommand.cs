@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace SportClub.Application.Features.User.Commands
+namespace SportClub.Application.Features.UserProfile.Commands
 {
     public record CreateUserProfileCommand() : IRequest<Guid>;
 }

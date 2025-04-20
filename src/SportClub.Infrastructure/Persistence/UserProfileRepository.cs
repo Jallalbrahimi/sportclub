@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using SportClub.Application.Features.User.Interfaces;
+using SportClub.Application.Features.UserProfile.Interfaces;
 using SportClub.Domain.Entities;
 
 namespace SportClub.Infrastructure.Persistence

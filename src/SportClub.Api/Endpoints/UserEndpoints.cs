@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using SportClub.Application.Features.User.Commands;
-using SportClub.Application.Features.User.Queries;
+using SportClub.Application.Features.UserProfile.Commands;
+using SportClub.Application.Features.UserProfile.Queries;
 
 namespace SportClub.Api.Endpoints
 {

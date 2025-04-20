@@ -2,9 +2,8 @@
 using Microsoft.Extensions.Configuration;
 using SportClub.Application.Features.Authentication.Interfaces;
 using SportClub.Domain.Entities;
-using SportClub.Infrastructure.Identity;
 
-namespace SportClub.Infrastructure.Services
+namespace SportClub.Infrastructure.Identity
 {
     public class AuthenticationService : IAuthenticationService
     {

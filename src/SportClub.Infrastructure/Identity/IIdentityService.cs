@@ -34,7 +34,7 @@ namespace SportClub.Infrastructure.Identity
             return new ApplicationUser
             {
                 Id = authenticationUser.Id,
-                Email = authenticationUser.Email,
+                Email = authenticationUser.Email ?? string.Empty,
                 UserProfile = userProfile,
             };
         }

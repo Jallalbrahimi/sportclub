@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.VisualStudio.JavaScript.Sdk/1.0.2191419">
+﻿<Project Sdk="Microsoft.VisualStudio.JavaScript.Sdk/1.0.2191419">
   <PropertyGroup>
     <StartupCommand>npm run dev</StartupCommand>
     <JavaScriptTestRoot>.\</JavaScriptTestRoot>
@@ -7,13 +7,10 @@
     <ShouldRunBuildScript>false</ShouldRunBuildScript>
     <!-- Folder where production build objects will be placed -->
     <BuildOutputFolder>$(MSBuildProjectDirectory)\dist</BuildOutputFolder>
-    <BuildCommand>
-    </BuildCommand>
   </PropertyGroup>
   <ItemGroup>
-    <TypeScriptConfiguration Include="_tsconfig.json" />
-  </ItemGroup>
-  <ItemGroup>
+    <None Include=".vscode\extensions.json" />
     <None Include=".vscode\launch.json" />
+    <None Include=".vscode\settings.json" />
   </ItemGroup>
 </Project>

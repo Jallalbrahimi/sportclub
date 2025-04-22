@@ -7,6 +7,6 @@ namespace SportClub.Application.Features.Authentication.Interfaces
         Task<bool> AuthenticateAsync(string email, string password);
         Task<bool> RegisterAsync(string email, string password);
 
-        Task<ApplicationUser> GetUserByEmailAsync(string email);
+        Task<ApplicationUser?> GetUserByEmailAsync(string email);
     }
 }

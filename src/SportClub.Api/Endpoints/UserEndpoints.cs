@@ -14,7 +14,7 @@ namespace SportClub.Api.Endpoints
             app.MapPost("/api/users", async (CreateUserProfileCommand command, IMediator mediator) =>
             {
                 var userId = await mediator.Send(command);
-                return Results.Created($"/api/orders/{userId}", userId);
+                return Results.Created($"/api/users/{userId}", userId);
             });
 
             // GET: /api/users

@@ -20,15 +20,11 @@ builder.Services.AddSwaggerGen();
 #if DEBUG
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("myAllowSpecificOrigins",
-        builder =>
-        {
-            //TODO: use configuration setting
-            builder
-                .AllowAnyOrigin()
-                .AllowAnyHeader()
-                .AllowAnyMethod();
-        });
+    options.AddDefaultPolicy(policy =>
+        policy.WithOrigins("http://localhost:5173")
+              .AllowAnyHeader()
+              .AllowAnyMethod()
+              .AllowCredentials());
 });
 #endif
 
@@ -50,7 +46,7 @@ if (app.Environment.IsDevelopment())
     app.UseDeveloperExceptionPage();
     app.UseSwagger();
     app.UseSwaggerUI();
-    app.UseCors("myAllowSpecificOrigins");
+    app.UseCors();
 }
 
 app.UseHttpsRedirection();

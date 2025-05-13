@@ -8,6 +8,6 @@
         public Guid UserProfileId { get; set; }
 
         // Optional: Navigation property
-        public required UserProfile UserProfile { get; set; }
+        public required Profile UserProfile { get; set; }
     }
 }

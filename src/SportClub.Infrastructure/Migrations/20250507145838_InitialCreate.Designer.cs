@@ -11,7 +11,7 @@ using SportClub.Infrastructure.Persistence;
 namespace SportClub.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250418125722_InitialCreate")]
+    [Migration("20250507145838_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -119,7 +119,7 @@ namespace SportClub.Infrastructure.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("SportClub.Domain.Entities.UserProfile", b =>
+            modelBuilder.Entity("SportClub.Domain.Entities.Profile", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -158,7 +158,7 @@ namespace SportClub.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("UserProfiles");
+                    b.ToTable("Profiles");
                 });
 
             modelBuilder.Entity("SportClub.Infrastructure.Identity.AuthenticationRole", b =>

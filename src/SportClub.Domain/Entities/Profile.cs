@@ -1,6 +1,6 @@
 ﻿namespace SportClub.Domain.Entities
 {
-    public class UserProfile : BaseEntity
+    public class Profile : BaseEntity
     {
         public string FirstName { get; set; } = default!;
         public string LastName { get; set; } = default!;

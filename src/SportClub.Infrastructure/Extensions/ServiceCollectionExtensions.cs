@@ -39,7 +39,7 @@ namespace SportClub.Infrastructure.Extensions
                 options.UseSqlite(connectionString));
 
             // Register the repository
-            services.AddScoped<IUserProfileRepository, UserProfileRepository>();
+            services.AddScoped<IProfileRepository, ProfileRepository>();
 
             return services;
         }

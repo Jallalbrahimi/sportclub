@@ -9,7 +9,7 @@ namespace SportClub.Infrastructure.Persistence
     public class ApplicationDbContext : IdentityDbContext<AuthenticationUser, AuthenticationRole, Guid>
     {
         public DbSet<AuthenticationUser> AuthenticationUsers { get; set; }
-        public DbSet<UserProfile> UserProfiles { get; set; }
+        public DbSet<Profile> Profiles { get; set; }
 
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
@@ -18,7 +18,7 @@ namespace SportClub.Infrastructure.Persistence
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<AuthenticationUser>().HasKey(o => o.Id); // Example configuration
-            modelBuilder.Entity<UserProfile>().HasKey(o => o.Id); // Example configuration
+            modelBuilder.Entity<Profile>().HasKey(o => o.Id); // Example configuration
             //modelBuilder.Entity<ApplicationUser>().HasKey(o => o.Id); // Example configuration
         }
     }

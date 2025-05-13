@@ -53,7 +53,7 @@ app.UseHttpsRedirection();
 
 
 // Register endpoints
-app.MapUserEndpoints();
+app.MapProfileEndpoints();
 app.MapIdentityEndpoints();
 
 app.Run();

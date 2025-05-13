@@ -116,7 +116,7 @@ namespace SportClub.Infrastructure.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("SportClub.Domain.Entities.UserProfile", b =>
+            modelBuilder.Entity("SportClub.Domain.Entities.Profile", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -155,7 +155,7 @@ namespace SportClub.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("UserProfiles");
+                    b.ToTable("Profiles");
                 });
 
             modelBuilder.Entity("SportClub.Infrastructure.Identity.AuthenticationRole", b =>

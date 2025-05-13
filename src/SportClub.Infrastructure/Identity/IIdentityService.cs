@@ -30,7 +30,7 @@ namespace SportClub.Infrastructure.Identity
                 return null;
             }
 
-            var userProfile = new UserProfile();
+            var userProfile = new Profile();
             return new ApplicationUser
             {
                 Id = authenticationUser.Id,
